@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Audio Generator</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
+    <!-- PyScript CSS -->
+    <link rel="stylesheet" href="https://pyscript.net/releases/2025.5.1/core.css">
+
+    <!-- This script tag bootstraps PyScript -->
+    <script type="module" src="https://pyscript.net/releases/2025.5.1/core.js"></script>
+</head>
+<body>
+    <script type="py" src="./pdf_to_audio.py" config="./pyscript.json"></script>
+
+    <form id="pdfForm">
+        <label for="pdfFile">Select PDF file:</label>
+        <input type="file" id="pdfFile" accept=".pdf" required>
+        <label for="downloadPath">Select Download Path:</label>
+        <input type="text" id="downloadPath" placeholder="Enter download path" required>
+        <button type="submit" py-click="pdf_to_audio">Generate Audio</button>
+    </form>
+    <p id="statusMessage"></p>
+</body>
+</html>
