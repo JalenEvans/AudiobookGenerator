@@ -1,6 +1,7 @@
 import ltk
 from PyPDF2 import PdfReader
 import io
+from js import speakAndRecord
 
 def generateAudiobook(pdf_data, filename):
         pdf_stream = io.BytesIO(pdf_data)
@@ -10,18 +11,9 @@ def generateAudiobook(pdf_data, filename):
         for page in pdf_reader.pages:
             page_text = page.extract_text()
             if page_text:
-                 text += page_text
+                 text += page_text + "\n"
 
-        speaker = pyttsx3.init()
-        speaker.setProperty('rate', 150)
-        speaker.setProperty('volume', 0.8)
-
-        audio_filename = filename.rsplit('.', 1)[0] + '.mp3'
-        speaker.save_to_file(text, audio_filename)
-        speaker.runAndWait()
-        speaker.stop()
-
-        return "Audio file created successfully: "
+        speakAndRecord(text)
 
 def create():
 
