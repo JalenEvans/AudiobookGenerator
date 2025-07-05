@@ -1,6 +1,5 @@
 import ltk
 from PyPDF2 import PdfReader
-import pyttsx3
 import io
 
 def generateAudiobook(pdf_data, filename):
