@@ -4,24 +4,12 @@
     <title>Audio Generator</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
-
-    <!-- PyScript CSS -->
-    <link rel="stylesheet" href="https://pyscript.net/releases/2025.5.1/core.css">
-
-    <!-- This script tag bootstraps PyScript -->
-    <script type="module" src="https://pyscript.net/releases/2025.5.1/core.js"></script>
-
-    <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
-    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
-
-    <!-- Lame.js -->
-    <script src="https://cdn.jsdelivr.net/npm/lamejs@1.2.0/lame.min.js"></script>
-
-    <script src="textToSpeech.js"></script>
 </head>
 <body>
-    <script type="py" src="home_page.py" config="pyscript.json"></script>
+    <h1>Upload PDF and Download MP3</h1>
+    <input type="file" id="pdf-upload" accept="application/pdf"/>
+    <button onclick="processPDF()">Convert to MP3</button>
+
+    <script type="module" src="../backend/script.mjs"></script>
 </body>
 </html>
