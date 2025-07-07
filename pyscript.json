@@ -1,7 +1,0 @@
-{
-    "packages" : ["pyscript-ltk", "PyPDF2"],
-    "files" : {
-        "https://raw.githubusercontent.com/pyscript/ltk/main/ltk/ltk.js" : "ltk/ltk.js",
-        "https://raw.githubusercontent.com/pyscript/ltk/main/ltk/ltk.css" : "ltk/ltk.css"
-    }
-}
