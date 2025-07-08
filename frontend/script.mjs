@@ -1,4 +1,4 @@
-import { getDocument } from "pdfjs-dist/legacy/build/pdf.min.mjs";
+import { getDocument } from "../backend/node_modules/pdfjs-dist/legacy/build/pdf.min.mjs";
 
 async function processPDF() {
     const file = document.getElementById("pdf-upload").files[0];
