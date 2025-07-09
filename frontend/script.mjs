@@ -1,24 +1,3 @@
-import { getDocument } from "../backend/node_modules/pdfjs-dist/legacy/build/pdf.min.mjs";
-
-async function processPDF() {
-    const file = document.getElementById("pdf-upload").files[0];
-    if (!file) return alert("Please upload a PDF File.");
-
-    const pdfData = await file.arrayBuffer()
-    const pdf = await getDocument({ data: pdfData }).promise;
-
-    let fullText = "";
-
-    for (let i = 1; i < pdf.numPages; i++) {
-        const page = pdf.getPage(i);
-        const content = page.getTextContent();
-        const pageText = content.items.map(item => item.str).join(' ');
-        fullText += pageText + "\n";
-    }
-
-    createAudio(fullText.slice(0, 5000));
-}
-
 async function createAudio(text) {
     const response = await fetch('http://localhost:3000/tts', {
         method: 'POST',
