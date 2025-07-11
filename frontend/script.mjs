@@ -5,4 +5,20 @@ async function uploadPDF() {
 
     const formData = new FormData();
     formData.append('pdf', file);
+
+    const res = await fetch('http://localhost:3000/upload', {
+        method: 'POST',
+        body: formData
+    });
+    
+    if (!res.ok) {
+        alert('Failed to convert to PDF.');
+        return;
+    }
+
+    const data = await res.json();
+    document.getElementById('result').innerHTML = `
+        <p>Download your MP3:</p>
+        <a href="${data.audioUrl}" download="audiobook.mp3">Download MP3</a>
+    `;
 }

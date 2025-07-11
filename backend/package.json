@@ -1,11 +1,11 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "server.mjs",
   "type": "module",
   "scripts": {
     "test": "test",
-    "start": "node server.js"
+    "start": "node server.mjs"
   },
   "author": "",
   "license": "ISC",

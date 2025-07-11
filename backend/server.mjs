@@ -1,10 +1,9 @@
 import express from 'express';
-import fetch from 'node-fetch';
 import cors from 'cors';
 import fs from 'fs';
 import { TextToSpeechClient } from '@google-cloud/text-to-speech';
-import pdfParse from 'pdf-parse';
-import util from 'util';
+import pdf from 'pdf-parse';
+import multer from 'multer';
 import dotenv from 'dotenv';
 
 dotenv.config();
@@ -23,7 +22,7 @@ app.post('/upload', upload.single('pdf'), async (req, res) => {
     try {
         const pdfPath = req.file.path
         const pdfBuffer = fs.readFileSync(pdfPath);
-        const pdfData = await pdfParse(pdfBuffer);
+        const pdfData = await pdf(pdfBuffer);
         const text = pdfData.text.slice(0, 4500);
 
         const request = {
@@ -34,7 +33,7 @@ app.post('/upload', upload.single('pdf'), async (req, res) => {
 
         const [response] = await client.synthesizeSpeech(request);
         const outputPath = `public/audio/${req.file.filename}.mp3`;
-        fs.writeFileSync(outputPath, response.audioContebt);
+        fs.writeFileSync(outputPath, response.audioContent);
 
         fs.unlinkSync(pdfPath);
 
