@@ -19,6 +19,6 @@ async function uploadPDF() {
     const data = await res.json();
     document.getElementById('result').innerHTML = `
         <p>Download your MP3:</p>
-        <a href="${data.audioUrl}" download="audiobook.mp3">Download MP3</a>
+        <a href="${data.audioUrl}" download="audiobook.mp3">Download</a>
     `;
 }
