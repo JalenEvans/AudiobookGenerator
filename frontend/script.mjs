@@ -1,4 +1,4 @@
-async function uploadPDF() {
+export async function uploadPDF() {
     const fileInput = document.getElementById('pdf-upload');
     const file = fileInput.files[0];
     if (!file) return alert('Please select a PDF.');
@@ -22,3 +22,5 @@ async function uploadPDF() {
         <a href="${data.audioUrl}" download="audiobook.mp3">Download</a>
     `;
 }
+
+window.uploadPDF = uploadPDF;
